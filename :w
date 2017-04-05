@@ -1,0 +1,30 @@
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class palstrTest
+ {
+    @Test
+    public void revTest() {
+      System.out.println("should rev an input string");
+      String  a="Madam";
+
+    }
+    public void pal()
+    {
+        System.out.println("Reverse");
+        String  a="Madam";
+	a=a.toLowerCase();
+        String expResult="";
+        palstr instance = new palstr();
+        expResult=new StringBuffer(a).reverse().toString();;
+        String result=instance.rev(a);
+        assertEquals(expResult,result);
+	System.out.println("Check");
+	instance.check(a,expResult);
+     }
+}
+
