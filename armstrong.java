@@ -1,8 +1,7 @@
 public class armstrong
-{       int sum=0;
-        public int Strong(int a)
+{       public int Strong(int a)
         {
-                int b,c=a;
+                int b,c=a,sum=0;
                 while(c!=0)
                 {
 
@@ -12,16 +11,29 @@ public class armstrong
                 }
                 return sum;
         }
-        public void check(int a)
+        public int check(int a,int sum)
         {
                 if(a==sum)
                 {
-                        System.out.println("Armtsrong");
+                       return 1;
                 }
                 else
                 {
-                        System.out.println("Armstrong");
+                       return 0; 
                 }
         }
+	public static void main(int a)
+	{
+	    armstrong obj=new armstrong();		
+	    int b=obj.Strong(a);
+	    int check=obj.check(a,b);
+	    if(check==1)
+	    {
+		System.out.println("Armstrong");
+	    }
+	    else
+		{
+		System.out.println("Not Armstrong");
+		}
+	}
 }
-
