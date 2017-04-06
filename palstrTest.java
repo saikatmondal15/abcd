@@ -10,6 +10,7 @@ public class palstrTest
  {
 
   ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+  
 
   @Before
   public void setUpStream() {
@@ -20,7 +21,6 @@ public class palstrTest
   public void cleanUpStream() {
      System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
   }
-
 
     @Test
     public void revTest() {
@@ -51,15 +51,20 @@ public class palstrTest
     }
 
     @Test
-   public void mainTestPalindrome(){
-     palstr.main("madam");
-     assertEquals("palindrome", outContent.toString());
+   public void mainTestPalindrome() throws java.io.IOException{
+        ByteArrayInputStream in = new ByteArrayInputStream("madam".getBytes());
+	System.setIn(in);
+	palstr.main();
+        assertEquals("input a number\npalindrome", outContent.toString().toLowerCase());
+     
    }
 
    @Test
-   public void mainTestNotPalindrome(){
-     palstr.main("hymen");
-     assertEquals("not palindrome", outContent.toString());
+   public void mainTestNotPalindrome() throws java.io.IOException{
+        ByteArrayInputStream in = new ByteArrayInputStream("hello".getBytes());
+	System.setIn(in);
+	palstr.main();
+     assertEquals("input a number\nnot palindrome", outContent.toString());
    }
 }
 

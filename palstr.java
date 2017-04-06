@@ -1,3 +1,6 @@
+import java.io.*;
+
+
 public class palstr
 {
 	public String rev(String a)
@@ -17,7 +20,10 @@ public class palstr
 	        }
        }
 
-       public static void main(String a){
+       public static void main() throws java.io.IOException{
+         System.out.println("input a number"); 
+	 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	 String a=br.readLine();
          palstr obj = new palstr();
          String b = obj.rev(a);
          int check= obj.check(a, b);
